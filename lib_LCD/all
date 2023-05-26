@@ -1,0 +1,25 @@
+#ifndef __ST7735_H
+#define __ST7735_H
+
+#include"spi.h"
+#include"delay.h"
+
+#define SOFT_NSS_H      GPIO_SetBits(SPI_PORT, GPIO_Pin_2)
+#define SOFT_NSS_L      GPIO_ResetBits(SPI_PORT, GPIO_Pin_2)
+#define CMD_LINE_H      GPIO_SetBits(SPI_PORT, GPIO_Pin_3)
+#define CMD_LINE_L      GPIO_ResetBits(SPI_PORT, GPIO_Pin_3)
+#define TFT_RESET_H     GPIO_SetBits(SPI_PORT, GPIO_Pin_1)
+#define TFT_RESET_L     GPIO_ResetBits(SPI_PORT, GPIO_Pin_1)
+
+#define TFT_ID          (uint8_t)0x04
+#define SOFT_RE         (uint8_t)0x01
+void TFT_SPI_Init(void);
+void TFT_WriteCMD(uint8_t cmd);
+uint8_t TFT_ReadData_Byte(void);
+uint32_t TFT_ReadID(void);
+
+
+
+
+
+#endif
